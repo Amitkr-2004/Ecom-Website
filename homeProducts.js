@@ -1,3 +1,4 @@
+import { addToCart } from "./addToCart";
 import { homeQuantityToggle } from "./homeQuantityToggle";
 const ProductContainer =document.querySelector('#productContainer')
 const ProductTemplate =document.querySelector('#productTemplate')
@@ -27,10 +28,17 @@ export const showProductContainer =(products) =>{
         productTemplateClone.querySelector(".productStock").textContent=stock;
 
         //now for toggling the value of cardIncrement and cardDecrement 
-        productTemplateClone.querySelector('.stockElement').addEventListener("click",(event)=>{
-            homeQuantityToggle(event,id,stock)
-        }
-        )
+        productTemplateClone
+            .querySelector('.stockElement')
+            .addEventListener("click",(event)=>{
+                homeQuantityToggle(event,id,stock)
+            })
+
+        productTemplateClone
+        .querySelector('.add-to-cart-button')
+        .addEventListener('click',(event)=>{
+            addToCart(event,id,stock);
+        })
 
         ProductContainer.append(productTemplateClone)
     })
