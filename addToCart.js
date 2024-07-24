@@ -1,5 +1,4 @@
-import { getCartProductsFromLS } from "./getCartProductsFromLS";
-import { homeQuantityToggle } from "./homeQuantityToggle";
+import { getCartProductsFromLS } from "./getCartProducts";
 import { UpdateCartValue } from "./UpdateCartValue";
 
 getCartProductsFromLS();

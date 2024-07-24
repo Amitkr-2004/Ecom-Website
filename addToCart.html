@@ -48,28 +48,31 @@
 
                 <!-- Starts Template for the product -->
                 <template id="productCartTemplate">
-                    <div class="cards" id="cardsValue">
-                        <!-- We have used here article tag as it will be all the cards are independent of each other -->
-                          <article class="information [card]">
-                            <span class="category"></span>
-                            <div class="imageContainer">
-                              <img class="productImage" src="" alt=""/>
-                            </div>
-                            <h2 class="productName"></h2>
+                  <div class="cards" id="cardValue">
+                    <article class="information [ card ]">
+                      <div>
+                        <span class="category"></span>
+                      </div>
+                      <div class="imageContainer">
+                        <img class="productImage" src="" alt="" />
+                      </div>
             
-                              <p class="productPrice"></p>
+                      <h2 class="productName"></h2>
             
-                              <div class="stockElement">
-                                <button class="cartIncrement">+</button>
-                                <p class="productQuantity">1</p>
-                                <button class="cartDecrement">-</button>
-                              </div>
-                  
-                            <button class="add-to-cart-button remove-to-cart-button">
-                              Remove
-                            </button>
-                          </article>
-                       </div>
+                      <p class="productPrice"></p>
+            
+                      <div class="stockElement">
+                        <button class="cartIncrement">+</button>
+                        <p class="productQuantity" data-quantity="1">1</p>
+                        <button class="cartDecrement">-</button>
+                      </div>
+            
+                      <!-- <button class="add-to-cart-button">Add To Cart</button> -->
+                      <button class="add-to-cart-button remove-to-cart-button">
+                        Remove
+                      </button>
+                    </article>
+                  </div>
                 </template>
 
                 <!-- Ends Template for the product -->
