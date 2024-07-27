@@ -16,6 +16,10 @@ export const showTotalPrice = () =>{
     let val=productTax.innerHTML;
     let tax=parseInt(val.replace('₹',''));
 
-    productFinalTotal.innerHTML=`₹${sum+tax}`;
-
+    if(sum!=0){                         //while removing it if sum == 0 return 0
+        productFinalTotal.innerHTML=`₹${sum+tax}`;
+    }
+    else{
+        productFinalTotal.innerHTML=`₹${0}`;
+    }
 }

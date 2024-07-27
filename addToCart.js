@@ -6,6 +6,7 @@ getCartProductsFromLS();
 
 export const addToCart = (event,id,stock) =>{
     let arrLocalStorageProduct = getCartProductsFromLS();   //this function basically retrieves all the data stored in LocalStorage 
+    let totalPrice=0;
 
     let product = document.querySelector(`#card${id}`);
     console.log(product);
@@ -22,11 +23,13 @@ export const addToCart = (event,id,stock) =>{
 
     // console.log(existingProd.productQuantity)
 
-    if(existingProd && productQuantity>1){      //this is used for updating the quantity And its price when user has increase the cart value
+    if(existingProd && productQuantity>=1){      //this is used for updating the quantity And its price when user has increase the cart value
         productQuantity=Number(productQuantity)+Number(existingProd.productQuantity)    
         productPrice=Number(productPrice*productQuantity);  //converting to number
-                
-        let updatedCart={id,productPrice,productQuantity}       //now all the new values are added to the updatedCart
+        totalPrice=productPrice;
+        totalPrice=totalPrice.toFixed(2);
+
+        let updatedCart={id,productPrice:totalPrice,productQuantity}       //now all the new values are added to the updatedCart
         updatedCart = arrLocalStorageProduct.map((currProduct)=>{   //now the new values are added to the array whose id got matched else remains the same
             if(currProduct.id==id)  return updatedCart
             else    return currProduct;
@@ -39,10 +42,12 @@ export const addToCart = (event,id,stock) =>{
         return false;
     }
 
-    productPrice=Number(productPrice*productQuantity);  //converting to number 
     productQuantity=Number(productQuantity)     //converting to number
+    productPrice=Number(productPrice*productQuantity);  //converting to number 
+    totalPrice=productPrice;
+    totalPrice=totalPrice.toFixed(2);
 
-    arrLocalStorageProduct.push({id,productQuantity,productPrice})      //pushing all the data in the array additionally 
+    arrLocalStorageProduct.push({id,productQuantity,productPrice:totalPrice})      //pushing all the data in the array additionally 
     localStorage.setItem('cartProductsLS',JSON.stringify(arrLocalStorageProduct));  //finally converting object to JSON format and inserting in LS
     // console.log(arrLocalStorageProduct.length)
 
