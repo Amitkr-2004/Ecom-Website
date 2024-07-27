@@ -1,4 +1,5 @@
 import { getCartProductsFromLS } from "./getCartProducts";
+import { showToast } from "./showToast";
 import { UpdateCartValue } from "./UpdateCartValue";
 
 getCartProductsFromLS();
@@ -24,13 +25,14 @@ export const addToCart = (event,id,stock) =>{
     if(existingProd && productQuantity>1){      //this is used for updating the quantity And its price when user has increase the cart value
         productQuantity=Number(productQuantity)+Number(existingProd.productQuantity)    
         productPrice=Number(productPrice*productQuantity);  //converting to number
-        
+                
         let updatedCart={id,productPrice,productQuantity}       //now all the new values are added to the updatedCart
         updatedCart = arrLocalStorageProduct.map((currProduct)=>{   //now the new values are added to the array whose id got matched else remains the same
             if(currProduct.id==id)  return updatedCart
             else    return currProduct;
         })
         localStorage.setItem('cartProductsLS',JSON.stringify(updatedCart));
+        showToast('add',id);
     }
     if(existingProd){
         // alert('already Present')
@@ -46,4 +48,5 @@ export const addToCart = (event,id,stock) =>{
 
     //updating cart button value
     UpdateCartValue(arrLocalStorageProduct)
+    showToast('add',id);
 }
