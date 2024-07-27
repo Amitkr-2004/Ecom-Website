@@ -1,8 +1,8 @@
 export const homeQuantityToggle = (event,id,stock) =>{
-    const productID=document.querySelector(`#card${id}`);   //as the id name is changed to card1,card2.... in homeProduct.js
+    const product=document.querySelector(`#card${id}`);   //as the id name is changed to card1,card2.... in homeProduct.js
     // console.log(product);
 
-    const productQuantity = productID.querySelector(".productQuantity");
+    const productQuantity = product.querySelector(".productQuantity");
     // console.log(productQuantity);
 
     let quantity = parseInt(productQuantity.getAttribute('data-quantity')) || 1;    //getting the attribute which is set before else initially 1

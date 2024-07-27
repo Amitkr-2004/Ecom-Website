@@ -1,7 +1,10 @@
 import { addToCart } from "./addToCart";
+
+
 import { homeQuantityToggle } from "./homeQuantityToggle";
 const ProductContainer =document.querySelector('#productContainer')
 const ProductTemplate =document.querySelector('#productTemplate')
+
 
 export const showProductContainer =(products) =>{
     if(!products){
